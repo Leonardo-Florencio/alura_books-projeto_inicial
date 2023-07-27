@@ -1,9 +1,13 @@
 function exibirOsLivrosNaTela(listaDeLivros) {
     elementoParaInserirLivros.innerHTML = ''
     listaDeLivros.forEach(livro => {
-        elementoParaInserirLivros.innerHTML += `
-        <div class="livro">
-      <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
+      // let disponibilidade = verificarDisponibilidadeDoLivro(livro)
+
+      // if com operador ternário:
+      let disponibilidade = livro.quantidade > 0 ? 'livro__imagens' : 'livros__imagens indisponivel'
+      elementoParaInserirLivros.innerHTML += `
+      <div class="livro">
+      <img class="${disponibilidade}" src="${livro.imagem}" alt="${livro.alt}" />
       <h2 class="livro__titulo">
         ${livro.titulo}
       </h2>
@@ -16,3 +20,11 @@ function exibirOsLivrosNaTela(listaDeLivros) {
         `
     })
 }
+
+// function verificarDisponibilidadeDoLivro(livro) {
+//   if (livro.quantidade > 0 ) {
+//     return 'livro__imagens'
+//   } else {
+//     return 'livros__imagens indisponivel'
+//   }
+// }
