@@ -6,6 +6,6 @@ const elementoParaInserirLivros = document.getElementById('livros');
 async function getBuscarLivrosDaApi() {
     const res = await fetch(endpointDaAPI);
     livros = await res.json();
-    console.table(livros);
-    exibirOsLivrosNaTela(livros)
+    let livrosComDesconto = aplicarDesconto(livros)
+    exibirOsLivrosNaTela(livrosComDesconto)
 }
